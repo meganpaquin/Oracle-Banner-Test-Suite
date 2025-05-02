@@ -5,9 +5,8 @@ from settings.connections import db_connector
 def test(cnn, sql):
     cur = cnn.cursor()
     cur.execute(sql)
-
-    return cur
-
+    rows = cur.fetchall()
+    return rows
 
 sqlQuery = "select " \
     "GOREMAL_PIDM, " \
@@ -20,10 +19,7 @@ sqlQuery = "select " \
     "HAVING Count(GOREMAL_PIDM) > 1"
 
 cursor = test(sqlQuery)
-print(cursor)
 
-def test_add():
-    assert True
+def test_multiple_emails():
+    assert len(cursor) == 0
 
-
-    

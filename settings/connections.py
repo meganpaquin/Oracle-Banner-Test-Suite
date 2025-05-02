@@ -5,7 +5,7 @@ import logging
 
 def db_connector(func):
     def with_connection_(*args, **kwargs):
-        # Connect to ORacle Client
+        # Connect to Oracle Client
         oracledb.init_oracle_client(config_dir=constants.config_dir)
 
         cnn = oracledb.connect(
@@ -23,4 +23,3 @@ def db_connector(func):
             cnn.close()
         return rv
     return with_connection_
-
