@@ -1,5 +1,5 @@
 import oracledb
-import constants
+import settings.constants as constants
 import logging
 
 

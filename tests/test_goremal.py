@@ -1,10 +1,12 @@
 import pytest
-
+from settings.connections import db_connector
 
 @db_connector
 def test(cnn, sql):
     cur = cnn.cursor()
     cur.execute(sql)
+
+    return cur
 
 
 sqlQuery = "select " \
@@ -17,7 +19,11 @@ sqlQuery = "select " \
     "GROUP BY GOREMAL_PIDM " \
     "HAVING Count(GOREMAL_PIDM) > 1"
 
-test(sqlQuery)
+cursor = test(sqlQuery)
+print(cursor)
+
+def test_add():
+    assert True
 
 
     
