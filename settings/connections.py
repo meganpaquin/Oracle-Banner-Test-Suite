@@ -2,7 +2,6 @@ import oracledb
 import settings.constants as constants
 import logging
 
-
 def db_connector(func):
     def with_connection_(*args, **kwargs):
         # Connect to Oracle Client
