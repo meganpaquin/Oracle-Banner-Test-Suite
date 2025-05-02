@@ -1,4 +1,5 @@
-import pytest
+import os
+from pathlib import Path
 from settings.connections import db_connector
 
 @db_connector
@@ -8,16 +9,7 @@ def test(cnn, sql):
     rows = cur.fetchall()
     return rows
 
-sqlQuery = "select " \
-    "GOREMAL_PIDM, " \
-    "Count(*) count " \
-    "FROM GENERAL.GOREMAL " \
-    "WHERE GOREMAL_EMAL_CODE = 'REC1' " \
-    "AND GOREMAL_STATUS_IND = 'A' " \
-    "AND GOREMAL_PREFERRED_IND = 'Y' " \
-    "GROUP BY GOREMAL_PIDM " \
-    "HAVING Count(GOREMAL_PIDM) > 1"
-
+sqlQuery = Path("sql/goremalMultipleRec1Emails.sql").read_text()
 cursor = test(sqlQuery)
 
 def test_multiple_emails():
