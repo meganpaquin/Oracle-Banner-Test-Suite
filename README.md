@@ -5,6 +5,8 @@
 2. Install PIP https://pip.pypa.io/en/stable/installation/
 3. Open Repository in CMD
 4. -> pip3 install -r requirements.txt
+5. Download .env file from LastPass
+6. Place .env file in root directory
 
 ## Run Tests:
 1. Open Repository in CMD
