@@ -16,6 +16,5 @@ def test_null_data():
     try:
         assert len(nullResults) == 0
     except AssertionError as e:
-        logging.error(f"Assertion failed: {e}")
         logging.error(nullResults)
         raise 

@@ -16,7 +16,6 @@ def test_multiple_emails():
     try:
         assert len(rec1Results) == 0
     except AssertionError as e:
-        logging.error(f"Assertion failed: {e}")
         logging.error(rec1Results)
         raise
 
@@ -28,6 +27,5 @@ def test_improper_MNET_email():
     try:
         assert len(mnetResults) == 0
     except AssertionError as e:
-        logging.error(f"Assertion failed: {e}")
         logging.error(mnetResults)
         raise  
