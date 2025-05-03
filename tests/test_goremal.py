@@ -8,9 +8,14 @@ def connect(cnn, sql):
     rows = cur.fetchall()
     return rows
 
-sqlQuery = Path("sql/goremalMultipleRec1Emails.sql").read_text()
-results = connect(sqlQuery)
+rec1Query = Path("sql/goremalMultipleRec1Emails.sql").read_text()
+rec1Results = connect(rec1Query)
 
 def test_multiple_emails():
-    assert len(results) == 0
+    assert len(rec1Results) == 0
 
+mnetQuery = Path("sql/goremalImproperMnetEmail.sql").read_text()
+mnetResults = connect(mnetQuery)
+
+def test_improper_MNET_email():
+    assert len(mnetResults) == 0
